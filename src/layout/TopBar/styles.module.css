@@ -2,5 +2,9 @@
   min-width: 100vw;
   height: 70px; /* that should be responsive later*/
   position: fixed;
-  background-color: antiquewhite;
+  background-color: rgb(255, 255, 255);
+}
+
+.container_fake {
+  position: static !important;
 }
