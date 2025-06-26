@@ -1,0 +1,6 @@
+.container {
+  min-width: 100vw;
+  height: 70px; /* that should be responsive later*/
+  position: fixed;
+  background-color: antiquewhite;
+}
