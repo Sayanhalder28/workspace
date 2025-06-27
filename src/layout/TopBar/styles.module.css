@@ -3,8 +3,10 @@
   height: 60px; /* that should be responsive later*/
   position: fixed;
   background-color: rgb(255, 255, 255);
+  box-shadow: 0 2px 6px 0 rgba(0, 21, 41, 0.12);
 }
 
 .container_fake {
   position: static !important;
+  box-shadow: none !important;
 }
