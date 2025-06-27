@@ -6,13 +6,20 @@
 }
 
 .content_container {
-  width: 100vw;
-  height: 100%;
+  width: 100%;
+  flex: 1;
   display: flex;
+  overflow: hidden;
 }
 
 .main_container {
   flex: 1;
-  height: max-content;
-  min-height: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox, Safari 18.2+, Chromium 121+ */
+}
+
+.main_container::-webkit-scrollbar {
+  display: none; /* Older Safari and Chromium */
 }

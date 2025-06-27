@@ -1,6 +1,6 @@
 .container {
   min-width: 100vw;
-  height: 70px; /* that should be responsive later*/
+  height: 60px; /* that should be responsive later*/
   position: fixed;
   background-color: rgb(255, 255, 255);
 }
