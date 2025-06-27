@@ -6,15 +6,15 @@ import styles from "./styles.module.css";
 function LayOut() {
   return (
     <>
-      <header>
+      <div className={styles.viewport}>
         <TopBar />
-      </header>
-      <nav>
-        <SideBar />
-      </nav>
-      <main className={styles.main_container}>
-        <Outlet />
-      </main>
+        <section className={styles.content_container}>
+          <SideBar />
+          <main className={styles.main_container}>
+            <Outlet />
+          </main>
+        </section>
+      </div>
     </>
   );
 }

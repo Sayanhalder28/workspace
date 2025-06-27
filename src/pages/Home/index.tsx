@@ -1,7 +1,9 @@
+import styles from "./styles.module.css";
+
 function HomePage() {
   return (
     <>
-      <div>Home Page</div>
+      <div className={styles.container}>Home Page</div>
     </>
   );
 }

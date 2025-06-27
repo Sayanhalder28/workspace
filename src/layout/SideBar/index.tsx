@@ -1,9 +1,7 @@
+import styles from "./styles.module.css";
+
 function SideBar() {
-  return (
-    <>
-      <div>Side Bar</div>
-    </>
-  );
+  return <nav className={styles.container}>Side Bar</nav>;
 }
 
 export default SideBar;
