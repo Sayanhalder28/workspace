@@ -6,12 +6,41 @@
   box-shadow: 0 2px 6px 0 rgba(0, 21, 41, 0.12);
 }
 
-.container_items {
+.container_alignments {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
+}
+
+.section_left {
+  display: flex;
+  align-items: center;
+}
+.brand_name {
+  margin-left: 10px;
+  color: #002140;
+  font-size: medium;
+  font-weight: 700;
+  text-wrap: nowrap;
+}
+
+.page_nav {
+  margin-left: 50px;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+}
+
+.page_nav_option {
+  text-wrap: nowrap;
+  font-size: smaller;
+}
+
+.section_right {
+  /* display: flex; */
+  text-align: center;
 }
 
 .fake_container {
