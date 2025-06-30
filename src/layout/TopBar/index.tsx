@@ -1,8 +1,24 @@
 import styles from "./styles.module.css";
 import BrandLogo from "../../assets/J&JLogo.svg";
+import { MouseEvent } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function TopBar() {
-  var handleClick = (url) => {};
+  const [newStyle, setNewStyle] = useState({});
+  const navigate = useNavigate();
+
+  var handleClick = (
+    element: MouseEvent<HTMLDivElement, globalThis.MouseEvent>,
+    url: string
+  ) => {
+    setNewStyle({
+      left: (element.target as HTMLInputElement).offsetLeft + "px",
+      width: (element.target as HTMLInputElement).offsetWidth / 2 + "px",
+    });
+
+    navigate(url);
+  };
 
   return (
     <header>
@@ -13,23 +29,23 @@ function TopBar() {
           <nav className={styles.page_nav}>
             <div
               className={styles.page_nav_options}
-              onClick={() => handleClick('optionOne',"pageUrl")}
+              onClick={(e) => handleClick(e, "/")}
             >
               Home
             </div>
             <div
               className={styles.page_nav_options}
-              onClick={() => handleClick('optionTwo',"pageUrl")}
+              onClick={(e) => handleClick(e, "/tickets_&_services")}
             >
               Tickets & Services
             </div>
             <div
               className={styles.page_nav_options}
-              onClick={() => handleClick('optionThree',"pageUrl")}
+              onClick={(e) => handleClick(e, "/notifications")}
             >
               Notifications
             </div>
-            <div className={styles.page_nav_selection}></div>
+            <div className={styles.page_nav_selection} style={newStyle}></div>
           </nav>
         </div>
         <div className={styles.section_right}>right half</div>

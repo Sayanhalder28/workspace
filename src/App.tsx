@@ -9,13 +9,13 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route element={<LayOut />}>
-            <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<LayOut />}>
+            <Route index element={<HomePage />} />
             <Route
-              path="/tickets_&_services"
+              path="tickets_&_services"
               element={<TicketsServicesPage />}
             />
-            <Route path="/notifications" element={<NotificationsPage />} />
+            <Route path="notifications" element={<NotificationsPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

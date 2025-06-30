@@ -1,7 +1,9 @@
+import styles from "./styles.module.css";
+
 function TicketsServicesPage() {
   return (
     <>
-      <div>Ticekets and services Page</div>
+      <div className={styles.container}>Ticekets and services Page</div>
     </>
   );
 }

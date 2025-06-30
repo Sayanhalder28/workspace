@@ -1,7 +1,9 @@
+import styles from "./styles.module.css";
+
 function NotificationsPage() {
   return (
     <>
-      <div>Notifications Page</div>
+      <div className={styles.container}>Notifications Page</div>
     </>
   );
 }
