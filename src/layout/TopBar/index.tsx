@@ -12,20 +12,20 @@ function TopBar() {
           <div className={styles.brand_name}>Config Store</div>
           <nav className={styles.page_nav}>
             <div
-              className={styles.page_nav_option}
-              onClick={() => handleClick("pageUrl")}
+              className={styles.page_nav_options}
+              onClick={() => handleClick('optionOne',"pageUrl")}
             >
               Home
             </div>
             <div
-              className={styles.page_nav_option}
-              onClick={() => handleClick("pageUrl")}
+              className={styles.page_nav_options}
+              onClick={() => handleClick('optionTwo',"pageUrl")}
             >
               Tickets & Services
             </div>
             <div
-              className={styles.page_nav_option}
-              onClick={() => handleClick("pageUrl")}
+              className={styles.page_nav_options}
+              onClick={() => handleClick('optionThree',"pageUrl")}
             >
               Notifications
             </div>

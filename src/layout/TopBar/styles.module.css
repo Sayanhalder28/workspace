@@ -34,14 +34,15 @@
   gap: 20px;
 }
 
-.page_nav_option {
+.page_nav_options {
   text-wrap: nowrap;
   font-size: smaller;
 }
 
-.page_nav_option:hover {
+.page_nav_options:hover {
   color: #4580ff;
 }
+
 
 .page_nav_selection {
   height: 3px;
@@ -51,6 +52,19 @@
   left: 0px;
   background-color: #4580ff;
   border-radius: 10px;
+}
+
+
+.page_nav_selection_at_optionOne{
+
+}
+
+.page_nav_selection_at_optionTwo{
+  
+}
+
+.page_nav_selection_at_optionThree{
+  
 }
 
 .section_right {
