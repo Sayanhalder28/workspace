@@ -2,6 +2,8 @@ import styles from "./styles.module.css";
 import BrandLogo from "../../assets/J&JLogo.svg";
 
 function TopBar() {
+  var handleClick = (url) => {};
+
   return (
     <header>
       <div className={`${styles.container} ${styles.container_alignments}`}>
@@ -9,9 +11,24 @@ function TopBar() {
           <img src={BrandLogo} alt="BrandLogo" height={40} />
           <div className={styles.brand_name}>Config Store</div>
           <nav className={styles.page_nav}>
-            <div className={styles.page_nav_option}>Home</div>
-            <div className={styles.page_nav_option}>Tickets & Services</div>
-            <div className={styles.page_nav_option}>Notifications</div>
+            <div
+              className={styles.page_nav_option}
+              onClick={() => handleClick("pageUrl")}
+            >
+              Home
+            </div>
+            <div
+              className={styles.page_nav_option}
+              onClick={() => handleClick("pageUrl")}
+            >
+              Tickets & Services
+            </div>
+            <div
+              className={styles.page_nav_option}
+              onClick={() => handleClick("pageUrl")}
+            >
+              Notifications
+            </div>
             <div className={styles.page_nav_selection}></div>
           </nav>
         </div>
