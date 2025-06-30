@@ -6,7 +6,16 @@
   box-shadow: 0 2px 6px 0 rgba(0, 21, 41, 0.12);
 }
 
-.container_fake {
+.container_items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.fake_container {
   position: static !important;
   box-shadow: none !important;
+  visibility: hidden; /* keep it hidden in desktop view */
 }
