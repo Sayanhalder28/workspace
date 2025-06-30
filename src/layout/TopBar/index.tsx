@@ -12,6 +12,7 @@ function TopBar() {
             <div className={styles.page_nav_option}>Home</div>
             <div className={styles.page_nav_option}>Tickets & Services</div>
             <div className={styles.page_nav_option}>Notifications</div>
+            <div className={styles.page_nav_selection}></div>
           </nav>
         </div>
         <div className={styles.section_right}>right half</div>
