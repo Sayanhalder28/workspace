@@ -1,5 +1,7 @@
 import styles from "./styles.module.css";
 import BrandLogo from "../../assets/J&JLogo.svg";
+import GlobIcon from "../../assets/GlobIcon.svg";
+import SearchIcon from "../../assets/SearchIcon.svg";
 import { MouseEvent } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -50,7 +52,11 @@ function TopBar() {
           </nav>
         </div>
         <div className={styles.section_right}>
-          <UserDetails />
+          <div className={styles.search_box}></div>
+          <img src={SearchIcon} alt="search_icon" height={20} />
+          <UserDetails />{" "}
+          {/* This component will fetch the profile data and prepare the user section */}
+          <img src={GlobIcon} alt="search_icon" height={20} />
         </div>
       </div>
       <div className={`${styles.container} ${styles.fake_container}`}></div>

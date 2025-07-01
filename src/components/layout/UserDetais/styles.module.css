@@ -3,11 +3,23 @@
   align-items: center;
 }
 
-.user_pic {
+.user_pic_frame {
   height: 35px;
-  width: 25px;
+  width: 35px;
   border-radius: 15%;
-  display: flex;
-  align-items: center;
+  position: relative;
   overflow: hidden;
+}
+
+.user_pic {
+  height: 102%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.user_name {
+  margin-left: 10px;
+  font-size: smaller;
 }

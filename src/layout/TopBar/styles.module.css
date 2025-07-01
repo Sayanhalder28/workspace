@@ -56,8 +56,15 @@
 }
 
 .section_right {
-  /* display: flex; */
-  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.search_box {
+  width: 200px;
+  height: 30px;
+  background-color: #cccccc;
 }
 
 .fake_container {
