@@ -61,12 +61,6 @@
   gap: 20px;
 }
 
-.search_box {
-  width: 200px;
-  height: 30px;
-  background-color: #cccccc;
-}
-
 .fake_container {
   position: static !important;
   box-shadow: none !important;

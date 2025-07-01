@@ -1,11 +1,11 @@
 import styles from "./styles.module.css";
 import BrandLogo from "../../assets/J&JLogo.svg";
 import GlobIcon from "../../assets/GlobIcon.svg";
-import SearchIcon from "../../assets/SearchIcon.svg";
 import { MouseEvent } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import UserDetails from "../../components/layout/UserDetais";
+import SearchBox from "../../components/layout/SearchBox";
 
 function TopBar() {
   const [newStyle, setNewStyle] = useState({});
@@ -52,11 +52,10 @@ function TopBar() {
           </nav>
         </div>
         <div className={styles.section_right}>
-          <div className={styles.search_box}></div>
-          <img src={SearchIcon} alt="search_icon" height={20} />
+          <SearchBox />
           <UserDetails />{" "}
           {/* This component will fetch the profile data and prepare the user section */}
-          <img src={GlobIcon} alt="search_icon" height={20} />
+          <img src={GlobIcon} alt="search_icon" height={20} width={20} />
         </div>
       </div>
       <div className={`${styles.container} ${styles.fake_container}`}></div>
