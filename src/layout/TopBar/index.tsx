@@ -53,9 +53,9 @@ function TopBar() {
         </div>
         <div className={styles.section_right}>
           <SearchBox />
-          <UserDetails />{" "}
+          <UserDetails />
           {/* This component will fetch the profile data and prepare the user section */}
-          <img src={GlobIcon} alt="search_icon" height={20} width={20} />
+          <img src={GlobIcon} alt="floab_icon" height={20} width={20} />
         </div>
       </div>
       <div className={`${styles.container} ${styles.fake_container}`}></div>
