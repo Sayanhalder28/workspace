@@ -3,6 +3,7 @@ import BrandLogo from "../../assets/J&JLogo.svg";
 import { MouseEvent } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import UserDetails from "../../components/layout/UserDetais";
 
 function TopBar() {
   const [newStyle, setNewStyle] = useState({});
@@ -48,7 +49,9 @@ function TopBar() {
             <div className={styles.page_nav_selection} style={newStyle}></div>
           </nav>
         </div>
-        <div className={styles.section_right}>right half</div>
+        <div className={styles.section_right}>
+          <UserDetails />
+        </div>
       </div>
       <div className={`${styles.container} ${styles.fake_container}`}></div>
     </header>

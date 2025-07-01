@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.user_pic {
+  height: 35px;
+  width: 35px;
+  border-radius: 15%;
+  background-position: center;
+}
