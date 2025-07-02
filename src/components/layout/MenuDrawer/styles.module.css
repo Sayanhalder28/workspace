@@ -1,0 +1,32 @@
+.container {
+  height: max-content;
+  position: relative;
+  color: #5e5e5e;
+  overflow: hidden;
+}
+
+.drawer_title {
+  height: 30px;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 500;
+  text-wrap: nowrap;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  background-color: #e9f2ff;
+  padding-left: 20px;
+}
+
+.drawer_list {
+  width: 100%;
+  max-height: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 30px 0px 0px 48px;
+  overflow: hidden;
+  transition: all linear 0.4s;
+}
