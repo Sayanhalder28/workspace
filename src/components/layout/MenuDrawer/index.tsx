@@ -1,39 +1,63 @@
 import Styles from "./styles.module.css";
-import React, { ReactNode, useState } from "react";
+import React, { cloneElement, isValidElement, useState } from "react";
 
 interface Props {
-  children: ReactNode;
-  name: string;
-  icon: string;
+  name?: string;
+  icon?: React.ReactNode;
+  focus?: string;
+  setFocus?: Function;
+  children?: React.ReactNode;
 }
 
-function MenuDrawer({ children, name, icon }: Props) {
-  const [selected, setSelected] = useState(false);
-  var openList: React.CSSProperties = {
-    maxHeight: "400px",
-    overflowY: "scroll",
+function MenuDrawer({ children, name, icon, focus, setFocus }: Props) {
+  const [open, setOpen] = useState(false);
+
+  var openList: React.CSSProperties = open
+    ? {
+        maxHeight: "400px",
+        overflowY: "scroll",
+      }
+    : {};
+
+  var focusedBox: React.CSSProperties =
+    focus == name
+      ? {
+          backgroundColor: "#E9F2FF",
+          color: "#1677FF",
+        }
+      : {};
+
+  const renderChildren = () => {
+    return React.Children.map(children, (child) => {
+      return isValidElement<{ focus?: string; setFocus?: Function }>(child)
+        ? cloneElement(child, {
+            focus: name,
+            setFocus: setFocus,
+          })
+        : null;
+    });
   };
 
-  var changeTextColor: React.CSSProperties = {
-    color: "#1677FF",
-  };
+  const Icon = isValidElement<{ color: string; height: string }>(icon)
+    ? cloneElement(icon, {
+        color: focus == name ? "#1677FF" : "#5e5e5e",
+        height: "18px",
+      })
+    : null;
 
   return (
-    <div
-      className={Styles.container}
-      onClick={() => {
-        setSelected(!selected);
-      }}
-    >
+    <div className={Styles.container}>
       <div
         className={Styles.drawer_title}
-        style={selected ? changeTextColor : {}}
+        style={focusedBox}
+        onClick={() => setOpen(!open)}
       >
-        <img src={icon} alt="i" height={18} width={18} />
+        {Icon}
+
         <span>{name}</span>
       </div>
-      <div className={Styles.drawer_list} style={selected ? openList : {}}>
-        {children}
+      <div className={Styles.drawer_list} style={openList}>
+        {renderChildren()}
       </div>
     </div>
   );

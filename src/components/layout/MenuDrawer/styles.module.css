@@ -3,21 +3,26 @@
   position: relative;
   color: #5e5e5e;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .drawer_title {
   height: 30px;
   width: 100%;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 550;
   text-wrap: nowrap;
   position: absolute;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   border-radius: 10px;
-  background-color: #e9f2ff;
   padding-left: 20px;
+  transition: all linear 0.1s;
+}
+
+.drawer_title:hover{
+  background-color: #E9F2FF ;
 }
 
 .drawer_list {
@@ -28,5 +33,5 @@
   gap: 5px;
   padding: 30px 0px 0px 48px;
   overflow: hidden;
-  transition: all linear 0.4s;
+  transition: all ease-in-out 0.3s;
 }
