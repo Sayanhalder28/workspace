@@ -1,15 +1,16 @@
 import styles from "./styles.module.css";
-import MenuItem from "../../components/layout/MenuItem";
+import DrawerItem from "../../components/layout/DrawerItem";
 import MenuDrawer from "../../components/layout/MenuDrawer";
 import AppIcon from "../../assets/AppIcon.tsx";
-import { useEffect, useState } from "react";
+import HelpIcon from "../../assets/HelpIcon.tsx";
+import { useState } from "react";
+import MenuItem from "../../components/layout/MenuItem/index.tsx";
 
 function SideBar() {
-  const [focus, setFocus] = useState("Dashboard");
-
-  useEffect(() => {
-    console.log(focus);
-  }, [focus]);
+  const [drawerfocus, setDrawerfocus] = useState(
+    window.location.pathname == "/" ? "Dashboard" : ""
+  );
+  const [itemFocus, SetItemFocus] = useState(window.location.pathname);
 
   return (
     <nav className={styles.container}>
@@ -18,45 +19,58 @@ function SideBar() {
         <MenuDrawer
           name="Dashboard"
           icon={<AppIcon />}
-          setFocus={setFocus}
-          focus={focus}
+          setDrawerFocus={setDrawerfocus}
+          drawerFocus={drawerfocus}
         >
-          <MenuItem hrf="/home">Overview</MenuItem>
-          <MenuItem hrf="/deployments">Deployments</MenuItem>
-          <MenuItem hrf="/warnings">Warnings</MenuItem>
-          <MenuItem hrf="/audit_&_logs">Audit & Logs</MenuItem>
+          <DrawerItem hrf="/" itemFocus={itemFocus} setItemFocus={SetItemFocus}>
+            Overview
+          </DrawerItem>
+          <DrawerItem
+            hrf="/deployments"
+            itemFocus={itemFocus}
+            setItemFocus={SetItemFocus}
+          >
+            Deployments
+          </DrawerItem>
+          <DrawerItem
+            hrf="/warnings"
+            itemFocus={itemFocus}
+            setItemFocus={SetItemFocus}
+          >
+            Warnings
+          </DrawerItem>
+          <DrawerItem
+            hrf="/audit_&_logs"
+            itemFocus={itemFocus}
+            setItemFocus={SetItemFocus}
+          >
+            Audit & Logs
+          </DrawerItem>
         </MenuDrawer>
-        <MenuDrawer
-          name="Reports  &  Analytics"
-          icon={<AppIcon />}
-          setFocus={setFocus}
-          focus={focus}
-        >
-          <MenuItem hrf="">example 1</MenuItem>
-          <MenuItem hrf="">example 1</MenuItem>
-          <MenuItem hrf="">example 1</MenuItem>
-        </MenuDrawer>
-        <MenuDrawer
-          name="Help & Support"
-          icon={<AppIcon />}
-          setFocus={setFocus}
-          focus={focus}
-        >
-          <MenuItem hrf="">example 1</MenuItem>
-          <MenuItem hrf="">example 1</MenuItem>
-          <MenuItem hrf="">example 1</MenuItem>
-        </MenuDrawer>
-
-        <MenuDrawer
+        <MenuItem
+          hrf="/reports_&_analytics"
+          name="Reports & Analytics"
+          icon={<HelpIcon />}
+          itemFocus={itemFocus}
+          setItemFocus={SetItemFocus}
+          setDrawerfocus={setDrawerfocus}
+        />
+        <MenuItem
+          hrf="/help_&_support"
+          name="Help & Suppot"
+          icon={<HelpIcon />}
+          itemFocus={itemFocus}
+          setItemFocus={SetItemFocus}
+          setDrawerfocus={setDrawerfocus}
+        />
+        <MenuItem
+          hrf="/settings"
           name="Settings"
-          icon={<AppIcon />}
-          setFocus={setFocus}
-          focus={focus}
-        >
-          <MenuItem hrf="">example 1</MenuItem>
-          <MenuItem hrf="">example 1</MenuItem>
-          <MenuItem hrf="">example 1</MenuItem>
-        </MenuDrawer>
+          icon={<HelpIcon />}
+          itemFocus={itemFocus}
+          setItemFocus={SetItemFocus}
+          setDrawerfocus={setDrawerfocus}
+        />
       </div>
     </nav>
   );

@@ -1,3 +1,25 @@
 .container {
-  font-size: small;
+  height: 30px;
+  position: relative;
+  color: #5e5e5e;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.drawer_title {
+  height: 100%;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 550;
+  text-wrap: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 10px;
+  padding-left: 20px;
+  transition: all linear 0.1s;
+}
+
+.drawer_title:hover {
+  background-color: #e9f2ff;
 }

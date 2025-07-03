@@ -2,15 +2,23 @@ import Styles from "./styles.module.css";
 import React, { cloneElement, isValidElement, useState } from "react";
 
 interface Props {
-  name?: string;
+  name: string;
   icon?: React.ReactNode;
-  focus?: string;
-  setFocus?: Function;
-  children?: React.ReactNode;
+  drawerFocus?: string;
+  setDrawerFocus?: Function;
+  children: React.ReactNode;
 }
 
-function MenuDrawer({ children, name, icon, focus, setFocus }: Props) {
+function MenuDrawer({
+  name,
+  icon,
+  drawerFocus,
+  setDrawerFocus,
+  children,
+}: Props) {
   const [open, setOpen] = useState(false);
+
+  console.log(children);
 
   var openList: React.CSSProperties = open
     ? {
@@ -20,7 +28,7 @@ function MenuDrawer({ children, name, icon, focus, setFocus }: Props) {
     : {};
 
   var focusedBox: React.CSSProperties =
-    focus == name
+    drawerFocus == name
       ? {
           backgroundColor: "#E9F2FF",
           color: "#1677FF",
@@ -29,18 +37,21 @@ function MenuDrawer({ children, name, icon, focus, setFocus }: Props) {
 
   const renderChildren = () => {
     return React.Children.map(children, (child) => {
-      return isValidElement<{ focus?: string; setFocus?: Function }>(child)
+      return isValidElement<{
+        drawerFocus?: string;
+        setDrawerFocus?: Function;
+      }>(child)
         ? cloneElement(child, {
-            focus: name,
-            setFocus: setFocus,
+            drawerFocus: name,
+            setDrawerFocus: setDrawerFocus,
           })
-        : null;
+        : child;
     });
   };
 
   const Icon = isValidElement<{ color: string; height: string }>(icon)
     ? cloneElement(icon, {
-        color: focus == name ? "#1677FF" : "#5e5e5e",
+        color: drawerFocus == name ? "#1677FF" : "#5e5e5e",
         height: "18px",
       })
     : null;

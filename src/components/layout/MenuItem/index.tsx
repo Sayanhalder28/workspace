@@ -1,32 +1,56 @@
-import { useNavigate, useLocation } from "react-router-dom";
-import styles from "./styles.module.css";
-import { ReactNode, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import Styles from "./styles.module.css";
+import React, { cloneElement, isValidElement } from "react";
 
 interface Props {
   hrf: string;
-  focus?: string;
-  setFocus?: Function;
-  children?: ReactNode;
+  name: string;
+  icon?: React.ReactNode;
+  itemFocus?: string;
+  setItemFocus?: Function;
+  setDrawerfocus: Function;
 }
 
-function MenuItem({ hrf, focus, setFocus, children }: Props) {
+function MenuItem({
+  hrf,
+  name,
+  icon,
+  itemFocus,
+  setItemFocus,
+  setDrawerfocus,
+}: Props) {
   const Navigate = useNavigate();
-  const containerRef = useRef<HTMLDivElement>(null);
-  const location = useLocation();
-  
+
+  const focusedBox: React.CSSProperties =
+    hrf == itemFocus
+      ? {
+          backgroundColor: "#E9F2FF",
+          color: "#1677FF",
+        }
+      : {};
+
+  const Icon = isValidElement<{ color: string; height: string }>(icon)
+    ? cloneElement(icon, {
+        color: itemFocus == hrf ? "#1677FF" : "#5e5e5e",
+        height: "18px",
+      })
+    : null;
 
   return (
-    <div
-      ref={containerRef}
-      className={styles.container}
-      onClick={() => {
-        if (focus && setFocus) {
-          setFocus(focus);
+    <div className={Styles.container}>
+      <div
+        className={Styles.drawer_title}
+        style={focusedBox}
+        onClick={() => {
           Navigate(hrf);
-        } else Navigate(hrf);
-      }}
-    >
-      {children ? children : "Item Name"}
+          setItemFocus ? setItemFocus(hrf) : null;
+          setDrawerfocus("");
+        }}
+      >
+        {Icon}
+
+        <span>{name}</span>
+      </div>
     </div>
   );
 }
