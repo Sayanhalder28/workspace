@@ -12,7 +12,7 @@
 .search_input {
   width: 80px;
   background-color: inherit;
-  color: inherit;
+  color: #5E5E5E;
   border: none;
   outline: none;
   transition: width ease-in 0.25s;
@@ -22,7 +22,3 @@
   width: 150px;
 }
 
-.search_icon {
-  width: 20px;
-  height: 20px;
-}

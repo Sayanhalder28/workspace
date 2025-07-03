@@ -5,23 +5,17 @@ import AppIcon from "../../assets/AppIcon.tsx";
 import HelpIcon from "../../assets/HelpIcon.tsx";
 import { useState } from "react";
 import MenuItem from "../../components/layout/MenuItem/index.tsx";
+import SettingsIcon from "../../assets/SettingsIcon.tsx";
+import ReportsIcon from "../../assets/ReportsIcon.tsx";
 
 function SideBar() {
-  const [drawerfocus, setDrawerfocus] = useState(
-    window.location.pathname == "/" ? "Dashboard" : ""
-  );
   const [itemFocus, SetItemFocus] = useState(window.location.pathname);
 
   return (
     <nav className={styles.container}>
       <div className={styles.page_Name}>Home</div>
       <div className={styles.menu}>
-        <MenuDrawer
-          name="Dashboard"
-          icon={<AppIcon />}
-          setDrawerFocus={setDrawerfocus}
-          drawerFocus={drawerfocus}
-        >
+        <MenuDrawer name="Dashboard" icon={<AppIcon />} itemFocus={itemFocus}>
           <DrawerItem hrf="/" itemFocus={itemFocus} setItemFocus={SetItemFocus}>
             Overview
           </DrawerItem>
@@ -50,10 +44,9 @@ function SideBar() {
         <MenuItem
           hrf="/reports_&_analytics"
           name="Reports & Analytics"
-          icon={<HelpIcon />}
+          icon={<ReportsIcon />}
           itemFocus={itemFocus}
           setItemFocus={SetItemFocus}
-          setDrawerfocus={setDrawerfocus}
         />
         <MenuItem
           hrf="/help_&_support"
@@ -61,15 +54,13 @@ function SideBar() {
           icon={<HelpIcon />}
           itemFocus={itemFocus}
           setItemFocus={SetItemFocus}
-          setDrawerfocus={setDrawerfocus}
         />
         <MenuItem
           hrf="/settings"
           name="Settings"
-          icon={<HelpIcon />}
+          icon={<SettingsIcon />}
           itemFocus={itemFocus}
           setItemFocus={SetItemFocus}
-          setDrawerfocus={setDrawerfocus}
         />
       </div>
     </nav>

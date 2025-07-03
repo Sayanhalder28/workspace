@@ -8,17 +8,9 @@ interface Props {
   icon?: React.ReactNode;
   itemFocus?: string;
   setItemFocus?: Function;
-  setDrawerfocus: Function;
 }
 
-function MenuItem({
-  hrf,
-  name,
-  icon,
-  itemFocus,
-  setItemFocus,
-  setDrawerfocus,
-}: Props) {
+function MenuItem({ hrf, name, icon, itemFocus, setItemFocus }: Props) {
   const Navigate = useNavigate();
 
   const focusedBox: React.CSSProperties =
@@ -44,7 +36,6 @@ function MenuItem({
         onClick={() => {
           Navigate(hrf);
           setItemFocus ? setItemFocus(hrf) : null;
-          setDrawerfocus("");
         }}
       >
         {Icon}
