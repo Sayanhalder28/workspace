@@ -16,25 +16,29 @@ function SideBar() {
       <div className={styles.page_Name}>Home</div>
       <div className={styles.menu}>
         <MenuDrawer name="Dashboard" icon={<AppIcon />} itemFocus={itemFocus}>
-          <DrawerItem hrf="/" itemFocus={itemFocus} setItemFocus={SetItemFocus}>
+          <DrawerItem
+            hrf="/h"
+            itemFocus={itemFocus}
+            setItemFocus={SetItemFocus}
+          >
             Overview
           </DrawerItem>
           <DrawerItem
-            hrf="/deployments"
+            hrf="/h/deployments"
             itemFocus={itemFocus}
             setItemFocus={SetItemFocus}
           >
             Deployments
           </DrawerItem>
           <DrawerItem
-            hrf="/warnings"
+            hrf="/h/warnings"
             itemFocus={itemFocus}
             setItemFocus={SetItemFocus}
           >
             Warnings
           </DrawerItem>
           <DrawerItem
-            hrf="/audit_&_logs"
+            hrf="/h/audit_logs"
             itemFocus={itemFocus}
             setItemFocus={SetItemFocus}
           >
@@ -42,21 +46,21 @@ function SideBar() {
           </DrawerItem>
         </MenuDrawer>
         <MenuItem
-          hrf="/reports_&_analytics"
+          hrf="/h/reports_analytics"
           name="Reports & Analytics"
           icon={<ReportsIcon />}
           itemFocus={itemFocus}
           setItemFocus={SetItemFocus}
         />
         <MenuItem
-          hrf="/help_&_support"
+          hrf="/h/help_support"
           name="Help & Suppot"
           icon={<HelpIcon />}
           itemFocus={itemFocus}
           setItemFocus={SetItemFocus}
         />
         <MenuItem
-          hrf="/settings"
+          hrf="/h/settings"
           name="Settings"
           icon={<SettingsIcon />}
           itemFocus={itemFocus}

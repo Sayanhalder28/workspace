@@ -32,19 +32,19 @@ function TopBar() {
           <nav className={styles.page_nav}>
             <div
               className={styles.page_nav_options}
-              onClick={(e) => handleClick(e, "/")}
+              onClick={(e) => handleClick(e, "/h")}
             >
               Home
             </div>
             <div
               className={styles.page_nav_options}
-              onClick={(e) => handleClick(e, "/tickets_&_services")}
+              onClick={(e) => handleClick(e, "/t_&_s")}
             >
               Tickets & Services
             </div>
             <div
               className={styles.page_nav_options}
-              onClick={(e) => handleClick(e, "/notifications")}
+              onClick={(e) => handleClick(e, "/ns")}
             >
               Notifications
             </div>
