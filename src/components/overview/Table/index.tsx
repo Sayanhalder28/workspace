@@ -1,14 +1,15 @@
 import styles from "./styles.module.css";
 
 interface Props {
-  style: String;
+  className: string;
+  name: string;
 }
 
-function Table({ style }: Props) {
+function Table({ className , name }: Props) {
   return (
-    <div className={`${styles.container} ${style}`}>
+    <div className={className}>
       <div className={styles.table}>
-        <div className={styles.heading}>Heading</div>
+        <div className={styles.heading}>{name}</div>
         <div className={styles.field_names}>Field Names</div>
         <div className={styles.values}>Values</div>
       </div>

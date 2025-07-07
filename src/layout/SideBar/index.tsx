@@ -17,28 +17,28 @@ function SideBar() {
       <div className={styles.menu}>
         <MenuDrawer name="Dashboard" icon={<AppIcon />} itemFocus={itemFocus}>
           <DrawerItem
-            hrf="/h"
+            hrf="/app/h"
             itemFocus={itemFocus}
             setItemFocus={SetItemFocus}
           >
             Overview
           </DrawerItem>
           <DrawerItem
-            hrf="/h/deployments"
+            hrf="/app/h/deployments"
             itemFocus={itemFocus}
             setItemFocus={SetItemFocus}
           >
             Deployments
           </DrawerItem>
           <DrawerItem
-            hrf="/h/warnings"
+            hrf="/app/h/warnings"
             itemFocus={itemFocus}
             setItemFocus={SetItemFocus}
           >
             Warnings
           </DrawerItem>
           <DrawerItem
-            hrf="/h/audit_logs"
+            hrf="/app/h/audit_logs"
             itemFocus={itemFocus}
             setItemFocus={SetItemFocus}
           >
@@ -46,21 +46,21 @@ function SideBar() {
           </DrawerItem>
         </MenuDrawer>
         <MenuItem
-          hrf="/h/reports_analytics"
+          hrf="/app/h/reports_analytics"
           name="Reports & Analytics"
           icon={<ReportsIcon />}
           itemFocus={itemFocus}
           setItemFocus={SetItemFocus}
         />
         <MenuItem
-          hrf="/h/help_support"
+          hrf="/app/h/help_support"
           name="Help & Suppot"
           icon={<HelpIcon />}
           itemFocus={itemFocus}
           setItemFocus={SetItemFocus}
         />
         <MenuItem
-          hrf="/h/settings"
+          hrf="/app/h/settings"
           name="Settings"
           icon={<SettingsIcon />}
           itemFocus={itemFocus}

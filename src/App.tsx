@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import LayOut from "./layout";
 import TicketsServicesPage from "./pages/TcketsServices";
 import NotificationsPage from "./pages/Notifications";
@@ -13,8 +13,9 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<LayOut />}>
-            <Route path="/h">
+          <Route path="/" element={<Navigate to="/app/h" replace />} />
+          <Route path="/app" element={<LayOut />}>
+            <Route path="h">
               <Route index element={<Overview />} />
               <Route path="deployments" element={<Deployments />} />
               <Route path="warnings" element={<Warnings />} />
@@ -27,12 +28,12 @@ function App() {
               <Route path="settings" element={<div>Settings</div>} />
             </Route>
 
-            <Route path="/t_&_s">
+            <Route path="t_&_s">
               <Route index element={<TicketsServicesPage />} />
               <Route path="services" element={<div>services</div>} />
             </Route>
 
-            <Route path="/ns">
+            <Route path="ns">
               <Route index element={<NotificationsPage />} />
               <Route path="system" element={<div>services</div>} />
               <Route path="server" element={<div>services</div>} />

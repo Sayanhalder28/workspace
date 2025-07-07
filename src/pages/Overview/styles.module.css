@@ -9,7 +9,6 @@
   width: 100%;
   height: max-content;
   min-height: 100vh;
-  background-color: black;
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(8, 1fr);
@@ -17,11 +16,11 @@
 }
 
 .grid_item {
+  padding: 25px;
   width: 100%;
   height: max-content;
-  /* min-height: 300px; */
-  background-color: gray;
-  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
 }
 
 .application_table {
