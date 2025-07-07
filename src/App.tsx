@@ -3,6 +3,10 @@ import LayOut from "./layout";
 import TicketsServicesPage from "./pages/TcketsServices";
 import NotificationsPage from "./pages/Notifications";
 import _404NF from "./pages/_404NF";
+import Overview from "./pages/Overview";
+import Deployments from "./pages/Deployments";
+import Warnings from "./pages/Warnings";
+import AuditLogs from "./pages/AuditLogs";
 
 function App() {
   return (
@@ -11,10 +15,10 @@ function App() {
         <Routes>
           <Route path="/" element={<LayOut />}>
             <Route path="/h">
-              <Route index element={<div>Overview</div>} />
-              <Route path="deployments" element={<div>Deployments</div>} />
-              <Route path="warnings" element={<div>Warnings</div>} />
-              <Route path="audit_logs" element={<div>Audit & Logs</div>} />
+              <Route index element={<Overview />} />
+              <Route path="deployments" element={<Deployments />} />
+              <Route path="warnings" element={<Warnings />} />
+              <Route path="audit_logs" element={<AuditLogs />} />
               <Route
                 path="reports_analytics"
                 element={<div>Reports & Analytics</div>}
