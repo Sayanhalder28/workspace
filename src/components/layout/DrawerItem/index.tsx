@@ -1,28 +1,19 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./styles.module.css";
 import React, { ReactNode } from "react";
+import { usePageLocation } from "../../../context/PageLocationProvider";
 
 interface Props {
   hrf: string;
-  itemFocus?: string;
-  setItemFocus?: Function;
-  drawerFocus?: string;
-  setDrawerFocus?: Function;
   children?: ReactNode;
 }
 
-function DrawerItem({
-  hrf,
-  itemFocus,
-  setItemFocus,
-  drawerFocus,
-  setDrawerFocus,
-  children,
-}: Props) {
+function DrawerItem({ hrf, children }: Props) {
   const Navigate = useNavigate();
+  const pageLocation = usePageLocation().pathName;
 
   const focusBox: React.CSSProperties =
-    itemFocus == hrf
+    pageLocation == hrf
       ? {
           color: "#1677FF",
         }
@@ -32,12 +23,6 @@ function DrawerItem({
     <div
       className={styles.container}
       onClick={() => {
-        if (drawerFocus && setDrawerFocus) {
-          setDrawerFocus(drawerFocus);
-        }
-        if (setItemFocus) {
-          setItemFocus(hrf);
-        }
         Navigate(hrf);
       }}
       style={focusBox}

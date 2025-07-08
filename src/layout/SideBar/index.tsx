@@ -3,68 +3,47 @@ import DrawerItem from "../../components/layout/DrawerItem";
 import MenuDrawer from "../../components/layout/MenuDrawer";
 import AppIcon from "../../assets/AppIcon.tsx";
 import HelpIcon from "../../assets/HelpIcon.tsx";
-import { useState } from "react";
 import MenuItem from "../../components/layout/MenuItem/index.tsx";
 import SettingsIcon from "../../assets/SettingsIcon.tsx";
 import ReportsIcon from "../../assets/ReportsIcon.tsx";
+import { usePageLocation } from "../../context/PageLocationProvider/index.tsx";
 
 function SideBar() {
-  const [itemFocus, SetItemFocus] = useState(window.location.pathname);
+  const pageLocation = usePageLocation().pathName;
+
+  const generateHeading = () => {
+    var page = pageLocation
+      .split("/")[2]
+      .replace(/_/g, " ")
+      .replace(/\b\w/g, (char) => char.toUpperCase());
+
+    return page;
+  };
 
   return (
     <nav className={styles.container}>
-      <div className={styles.page_Name}>Home</div>
+      <div className={styles.page_name}>{generateHeading()}</div>
       <div className={styles.menu}>
-        <MenuDrawer name="Dashboard" icon={<AppIcon />} itemFocus={itemFocus}>
-          <DrawerItem
-            hrf="/app/h"
-            itemFocus={itemFocus}
-            setItemFocus={SetItemFocus}
-          >
-            Overview
-          </DrawerItem>
-          <DrawerItem
-            hrf="/app/h/deployments"
-            itemFocus={itemFocus}
-            setItemFocus={SetItemFocus}
-          >
-            Deployments
-          </DrawerItem>
-          <DrawerItem
-            hrf="/app/h/warnings"
-            itemFocus={itemFocus}
-            setItemFocus={SetItemFocus}
-          >
-            Warnings
-          </DrawerItem>
-          <DrawerItem
-            hrf="/app/h/audit_logs"
-            itemFocus={itemFocus}
-            setItemFocus={SetItemFocus}
-          >
-            Audit & Logs
-          </DrawerItem>
+        <MenuDrawer name="Dashboard" icon={<AppIcon />}>
+          <DrawerItem hrf="/app/home">Overview</DrawerItem>
+          <DrawerItem hrf="/app/home/deployments">Deployments</DrawerItem>
+          <DrawerItem hrf="/app/home/warnings">Warnings</DrawerItem>
+          <DrawerItem hrf="/app/home/audit_logs">Audit & Logs</DrawerItem>
         </MenuDrawer>
         <MenuItem
-          hrf="/app/h/reports_analytics"
+          hrf="/app/home/reports_analytics"
           name="Reports & Analytics"
           icon={<ReportsIcon />}
-          itemFocus={itemFocus}
-          setItemFocus={SetItemFocus}
         />
         <MenuItem
-          hrf="/app/h/help_support"
+          hrf="/app/home/help_support"
           name="Help & Suppot"
           icon={<HelpIcon />}
-          itemFocus={itemFocus}
-          setItemFocus={SetItemFocus}
         />
         <MenuItem
-          hrf="/app/h/settings"
+          hrf="/app/home/settings"
           name="Settings"
           icon={<SettingsIcon />}
-          itemFocus={itemFocus}
-          setItemFocus={SetItemFocus}
         />
       </div>
     </nav>

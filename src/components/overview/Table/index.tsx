@@ -5,7 +5,7 @@ interface Props {
   name: string;
 }
 
-function Table({ className , name }: Props) {
+function Table({ className, name }: Props) {
   return (
     <div className={className}>
       <div className={styles.table}>

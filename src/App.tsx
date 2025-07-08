@@ -13,9 +13,9 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Navigate to="/app/h" replace />} />
+          <Route path="/" element={<Navigate to="/app/home" replace />} />
           <Route path="/app" element={<LayOut />}>
-            <Route path="h">
+            <Route path="home">
               <Route index element={<Overview />} />
               <Route path="deployments" element={<Deployments />} />
               <Route path="warnings" element={<Warnings />} />
@@ -28,12 +28,12 @@ function App() {
               <Route path="settings" element={<div>Settings</div>} />
             </Route>
 
-            <Route path="t_&_s">
+            <Route path="tickets_&_services">
               <Route index element={<TicketsServicesPage />} />
               <Route path="services" element={<div>services</div>} />
             </Route>
 
-            <Route path="ns">
+            <Route path="notifications">
               <Route index element={<NotificationsPage />} />
               <Route path="system" element={<div>services</div>} />
               <Route path="server" element={<div>services</div>} />

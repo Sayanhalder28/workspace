@@ -1,20 +1,20 @@
-import { useNavigate } from "react-router-dom";
 import Styles from "./styles.module.css";
+import { useNavigate } from "react-router-dom";
 import React, { cloneElement, isValidElement } from "react";
+import { usePageLocation } from "../../../context/PageLocationProvider";
 
 interface Props {
   hrf: string;
   name: string;
   icon?: React.ReactNode;
-  itemFocus?: string;
-  setItemFocus?: Function;
 }
 
-function MenuItem({ hrf, name, icon, itemFocus, setItemFocus }: Props) {
+function MenuItem({ hrf, name, icon }: Props) {
   const Navigate = useNavigate();
+  const pageLocation = usePageLocation().pathName;
 
   const focusedBox: React.CSSProperties =
-    hrf == itemFocus
+    hrf == pageLocation
       ? {
           backgroundColor: "#E9F2FF",
           color: "#1677FF",
@@ -23,7 +23,7 @@ function MenuItem({ hrf, name, icon, itemFocus, setItemFocus }: Props) {
 
   const Icon = isValidElement<{ color: string; height: string }>(icon)
     ? cloneElement(icon, {
-        color: itemFocus == hrf ? "#1677FF" : "#5e5e5e",
+        color: pageLocation == hrf ? "#1677FF" : "#5e5e5e",
         height: "18px",
       })
     : null;
@@ -35,7 +35,6 @@ function MenuItem({ hrf, name, icon, itemFocus, setItemFocus }: Props) {
         style={focusedBox}
         onClick={() => {
           Navigate(hrf);
-          setItemFocus ? setItemFocus(hrf) : null;
         }}
       >
         {Icon}

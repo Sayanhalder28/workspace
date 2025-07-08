@@ -1,24 +1,20 @@
+import { usePageLocation } from "../../../context/PageLocationProvider";
 import Styles from "./styles.module.css";
 import React, {
   cloneElement,
   isValidElement,
-  useEffect,
   useState,
 } from "react";
 
 interface Props {
   name: string;
   icon?: React.ReactNode;
-  itemFocus?: string;
   children: React.ReactNode;
 }
 
-function MenuDrawer({ name, icon, itemFocus, children }: Props) {
+function MenuDrawer({ name, icon, children }: Props) {
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    console.log("Component rendered or updated");
-  });
+  var pageLocation = usePageLocation().pathName;
 
   const MenuItemHrefs = React.Children.map(children, (child) => {
     if (React.isValidElement<{ hrf: string }>(child)) {
@@ -28,9 +24,16 @@ function MenuDrawer({ name, icon, itemFocus, children }: Props) {
   });
 
   const drawerSelected: boolean =
-    Array.isArray(MenuItemHrefs) && itemFocus != null
-      ? MenuItemHrefs.includes(itemFocus)
+    Array.isArray(MenuItemHrefs) && pageLocation != null
+      ? MenuItemHrefs.includes(pageLocation)
       : false;
+
+  const Icon = isValidElement<{ color: string; height: string }>(icon)
+    ? cloneElement(icon, {
+        color: drawerSelected ? "#1677FF" : "#5e5e5e",
+        height: "18px",
+      })
+    : null;
 
   var focusedBox: React.CSSProperties = drawerSelected
     ? {
@@ -45,13 +48,6 @@ function MenuDrawer({ name, icon, itemFocus, children }: Props) {
         overflowY: "scroll",
       }
     : {};
-
-  const Icon = isValidElement<{ color: string; height: string }>(icon)
-    ? cloneElement(icon, {
-        color: drawerSelected ? "#1677FF" : "#5e5e5e",
-        height: "18px",
-      })
-    : null;
 
   return (
     <div className={Styles.container}>
