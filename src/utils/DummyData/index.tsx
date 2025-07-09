@@ -1,4 +1,19 @@
-export const applicationsReecord = {
+export interface applicationsRecordType {
+  [key: string]: {
+    id: string;
+    type: string;
+    cpu: number;
+    memory: number;
+    status: string;
+    // Optional properties
+    location?: string;
+    owner?: string;
+    tags?: string[];
+    testvalueasdadsadsasdf?: string;
+  };
+}
+
+export const ApplicationsReecord: applicationsRecordType = {
   "id-001": {
     id: "id-001",
     type: "prod",
@@ -39,10 +54,11 @@ export const applicationsReecord = {
     cpu: 42,
     memory: 16,
     status: "stopped",
+    testvalueasdadsadsasdf: "adafd",
   },
 };
 
-export const applicationsRecordUniqueFields = {
+export const ApplicationsRecordUniqueFields = {
   type: ["prod", "dev", "qa"],
   status: ["running", "stopped", "error"],
   location: ["India", "US"],

@@ -1,12 +1,21 @@
 * {
   box-sizing: border-box;
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
-  scrollbar-width: none; /* Firefox, Safari 18.2+, Chromium 121+ */
 }
 
 *::-webkit-scrollbar {
-  display: none;
-} /* Older Safari and Chromium */
+  width: 4px;
+  height: 4px;
+}
+
+*::-webkit-scrollbar-track {
+  border-radius: 2px;
+  background-color: #f6f8fb;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: #d8d9d8;
+}
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -26,8 +35,6 @@
 body {
   margin: 0;
   padding: 0;
-  /* min-width: 320px;
-  min-height: 100vh; */
 }
 
 #root {
