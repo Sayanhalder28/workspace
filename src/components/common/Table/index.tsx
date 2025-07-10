@@ -1,5 +1,5 @@
 import styles from "./styles.module.css";
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import filterIcon from "../../../assets/FilterIcon.svg";
 import sortIcon from "../../../assets/SortIcon.svg";
 
@@ -9,9 +9,17 @@ interface Props {
   records: Record<string, any>;
   uniqueFields: Record<string, string[]>;
   icon?: string;
+  editField?: () => void;
 }
 
-function Table({ className, name, records, uniqueFields, icon }: Props) {
+function Table({
+  className,
+  name,
+  records,
+  uniqueFields,
+  icon,
+  editField,
+}: Props) {
   //Note: scanAllFields function should be there in the backend and it should search the entire data set
   function scanAllFields(records: Record<string, any>) {
     // Declear a set
@@ -32,7 +40,13 @@ function Table({ className, name, records, uniqueFields, icon }: Props) {
       const value = recordObj[field];
 
       return (
-        <div key={index} className={styles.table_value_cell}>
+        <div
+          key={index}
+          className={styles.table_value_cell}
+          cell-table={name}
+          cell-field={field}
+          cell-value={value !== undefined ? String(value) : "-"}
+        >
           {fieldIndex == 0 ? <img src={icon} alt="i"></img> : null}
           {value !== undefined ? String(value) : "-"}
         </div>
@@ -70,6 +84,10 @@ function Table({ className, name, records, uniqueFields, icon }: Props) {
 
     return element;
   }
+
+  useEffect(() => {
+    editField?.();
+  }, []);
 
   return (
     <div className={className}>

@@ -41,9 +41,9 @@
   grid-row: 3/6;
   background-image: linear-gradient(
     to top right,
-    #0c67f1,
-    rgba(20, 142, 255, 1),
-    rgba(10, 96, 255, 1)
+    rgba(12, 103, 241, 0.9),
+    rgba(0, 132, 255, 1),
+    rgba(10, 96, 255, 0.9)
   );
   color: #ffffff;
 }

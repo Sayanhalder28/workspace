@@ -85,3 +85,42 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* Global utility classes */
+
+.red-dot::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #ff3b30;
+}
+
+.green-dot::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #6ed760;
+}
+
+.orange-dot::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #ffbf00;
+}
+
+.blank-dot::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border: 1px solid #cccccc;
+  border-radius: 50%;
+  background-color: inherit;
+}

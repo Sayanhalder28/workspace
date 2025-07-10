@@ -45,6 +45,7 @@
   gap: 10px;
   justify-content: stretch;
   align-items: flex-start;
+  line-height: normal;
 }
 
 .feed_date_time {
