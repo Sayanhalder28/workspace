@@ -1,15 +1,13 @@
-export interface applicationsRecordType {
+interface applicationsRecordType {
   [key: string]: {
     id: string;
     type: string;
     cpu: number;
     memory: number;
     status: string;
-    // Optional properties
     location?: string;
-    owner?: string;
+    admin?: string;
     tags?: string[];
-    testvalueasdadsadsasdf?: string;
   };
 }
 
@@ -29,7 +27,7 @@ export const ApplicationsReecord: applicationsRecordType = {
     cpu: 55,
     memory: 32,
     status: "stopped",
-    owner: "Alice",
+    admin: "Alice",
   },
   "id-003": {
     id: "id-003",
@@ -38,7 +36,7 @@ export const ApplicationsReecord: applicationsRecordType = {
     memory: 48,
     status: "running",
     location: "US",
-    owner: "Bob",
+    admin: "Bob",
   },
   "id-004": {
     id: "id-004",
@@ -54,11 +52,11 @@ export const ApplicationsReecord: applicationsRecordType = {
     cpu: 42,
     memory: 16,
     status: "stopped",
-    testvalueasdadsadsasdf: "adafd",
   },
 };
 
-export const ApplicationsRecordUniqueFields = {
+// this will help to filter options iin table fields
+export const ApplicationsRecordUniqueFields: Record<string, string[]> = {
   type: ["prod", "dev", "qa"],
   status: ["running", "stopped", "error"],
   location: ["India", "US"],

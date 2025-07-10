@@ -4,31 +4,52 @@ import { ReactNode } from "react";
 interface Props {
   className: string;
   name: string;
-  record: { [key: string]: {} };
-  uniqueFields: { [key: string]: string[] };
-  fieldMap: string[];
+  records: Record<string, any>;
+  uniqueFields: Record<string, string[]>;
 }
 
-function Table({ className, name, record, uniqueFields, fieldMap }: Props) {
-  const allfields: Set<string> = new Set();
-
-  function scanAllFields(record: Props["record"]) {
-    Object.entries(record).forEach((row) => {
-      Object.keys(row[1]).forEach((key) => {
+function Table({ className, name, records, uniqueFields }: Props) {
+  //Note: scanAllFields function should be there in the backend and it should search the entire data set
+  function scanAllFields(records: Record<string, any>) {
+    // Declear a set
+    const allfields: Set<string> = new Set();
+    // Search the entire data
+    Object.entries(records).forEach(([_recordKey, recordObject]) => {
+      Object.keys(recordObject).forEach((key) => {
         allfields.add(key);
       });
     });
+    return [...allfields];
   }
 
-  scanAllFields(record);
+  // Function to make individual field columns
+  function createColumn(field: string): ReactNode {
+    // Iterate over each record and pick the value for the current field
+    return Object.entries(records).map(([_recordKey, recordObj], index) => {
+      const value = recordObj[field];
+      return (
+        <div key={index} className={styles.table_cell}>
+          {value !== undefined ? String(value) : "-"}
+        </div>
+      );
+    });
+  }
 
-  function generateTableBody(): ReactNode {
-    const fieldList = [...allfields];
+  function generateTableBody(
+    records: Record<string, Record<string, any>>,
+    _uniqueFields: Record<string, string[]>
+  ): ReactNode {
+    // scan all field names present in the dataset
+    const fieldList = scanAllFields(records);
 
+    // Build column for each field
     const element: ReactNode = fieldList.map((field, index) => {
+      const FieldName = field.replace(/\b\w/g, (char) => char.toUpperCase());
+
       return (
         <div key={index} className={styles.table_column}>
-          <div className={styles.table_column_field}>{field}</div>
+          <div className={styles.table_heading_cell}>{FieldName}</div>
+          {createColumn(field)}
         </div>
       );
     });
@@ -40,7 +61,13 @@ function Table({ className, name, record, uniqueFields, fieldMap }: Props) {
     <div className={className}>
       <div className={styles.table}>
         <div className={styles.table_heading}>{name}</div>
-        <div className={styles.table_body}>{generateTableBody()}</div>
+        <div className={styles.table_body}>
+          {records ? (
+            generateTableBody(records, uniqueFields)
+          ) : (
+            <div> No Data Found</div>
+          )}
+        </div>
       </div>
     </div>
   );
