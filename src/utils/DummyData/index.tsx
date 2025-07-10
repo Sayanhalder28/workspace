@@ -17,7 +17,7 @@ export const ApplicationsReecord: applicationsRecordType = {
     type: "prod",
     cpu: 78,
     memory: 64,
-    status: "running",
+    status: "<div>abc<div/>",
     location: "India",
     tags: ["critical", "frontend"],
   },
@@ -60,6 +60,37 @@ export const ApplicationsRecordUniqueFields: Record<string, string[]> = {
   type: ["prod", "dev", "qa"],
   status: ["running", "stopped", "error"],
   location: ["India", "US"],
-  owner: ["Alice", "Bob"],
   tags: ["critical", "frontend", "backend"],
+};
+
+export const dummyMassageData: Record<string, string> = {
+  "2024-01-01 10:00":
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  "2024-01-01 10:30":
+    "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "2024-01-02 11:00":
+    "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  "2024-01-02 11:45":
+    "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+  "2024-01-03 12:15":
+    "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "2024-01-03 13:00":
+    "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",
+  "2024-01-04 14:00":
+    "Sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
+  "2024-01-04 14:30":
+    "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.",
+  "2024-01-05 15:00":
+    "Consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.",
+  "2024-01-05 15:45":
+    "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.",
+  "2024-01-06 16:00": "Nisi ut aliquid ex ea commodi consequatur?",
+  "2024-01-06 16:30":
+    "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.",
+  "2024-01-07 17:00":
+    "Vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
+  "2024-01-07 17:45":
+    "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.",
+  "2024-01-08 18:00":
+    "Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
 };

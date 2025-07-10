@@ -21,8 +21,8 @@
   transition: all linear 0.1s;
 }
 
-.drawer_title:hover{
-  background-color: #E9F2FF ;
+.drawer_title:hover {
+  background-color: #e9f2ff;
 }
 
 .drawer_list {
@@ -34,4 +34,8 @@
   padding: 30px 0px 0px 48px;
   overflow: hidden;
   transition: all ease-in-out 0.3s;
+}
+
+.drawer_list::-webkit-scrollbar {
+  display: none;
 }

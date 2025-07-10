@@ -1,0 +1,59 @@
+.feed {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+.feed_heading {
+  font-size: large !important;
+  font-weight: 500;
+  margin-bottom: 20px;
+  line-height: 100%;
+}
+
+.feed_body {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.feed_body::-webkit-scrollbar {
+  display: none;
+}
+
+/* .feed_body:hover::-webkit-scrollbar {
+  display: block;
+} */
+
+.feed_item {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.feed_icon {
+  translate: 0px 4px;
+}
+
+.feed_massage {
+  font-size: 0.9rem;
+  font-weight: 400;
+  display: flex;
+  gap: 10px;
+  justify-content: stretch;
+  align-items: flex-start;
+}
+
+.feed_date_time {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: small;
+  font-weight: 400;
+  color: #919191;
+  margin-left: 31px;
+  margin-top: 5px;
+}

@@ -27,7 +27,6 @@
 
 .table_body::-webkit-scrollbar {
   display: none;
-  /* transition: all ease 3s; */
 }
 
 .table_body:hover::-webkit-scrollbar {
@@ -49,7 +48,7 @@
   padding-right: 30px;
   border-bottom: 1px solid #eeeeee;
   color: #383838;
-  font-size: small;
+  font-size: 0.9rem;
   font-weight: 400;
 }
 
@@ -71,4 +70,16 @@
 /* targeting all the values inside the last table column only */
 .table_column:last-child > div {
   border-top-right-radius: 3px;
+}
+
+.table_value_cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.table_heading_cell {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
