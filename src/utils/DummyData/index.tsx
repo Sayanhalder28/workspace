@@ -234,6 +234,15 @@ export const ServerRecord: serverRecordType = {
     status: "restarting",
     tags: ["dev"],
   },
+  "srv-005": {
+    id: "srv-005",
+    hostname: "app-node-5",
+    ip: "10.0.0.59",
+    os: "Debian 11",
+    uptimeDays: 89,
+    role: "application",
+    status: "offline",
+  },
 };
 
 export const ServerRecordUniqueFields: Record<string, string[]> = {
@@ -272,6 +281,7 @@ export const RecentLogData: Record<string, string> = {
   "2024-01-08 15:45": "Bob assigned role 'read-only' to QA testers.",
   "2024-01-08 16:10": "Service X scaled up from 3 to 6 instances.",
   "2024-01-08 17:00": "SSL certificate renewed for api.domain.com.",
-  "2024-01-08 17:45": "Security patch installed on all staging servers.",
+  "2024-01-08 17:45":
+    "Security patch installed on all staging servers. Plese restart the server",
   "2024-01-08 18:30": "Monitoring alert cleared: memory pressure resolved.",
 };

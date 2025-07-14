@@ -1,0 +1,28 @@
+.page_nav_container {
+  width: fit-content;
+  margin-left: 75px;
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+}
+
+.page_nav_options {
+  text-wrap: nowrap;
+  font-size: smaller;
+}
+
+.page_nav_options:hover {
+  color: #4580ff;
+}
+
+.page_nav_selection {
+  height: 3px;
+  width: 25px;
+  position: absolute;
+  top: 20px;
+  left: 0px;
+  background-color: #4580ff;
+  border-radius: 10px;
+  transition: all 0.3s ease-out;
+}

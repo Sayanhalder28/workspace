@@ -24,7 +24,7 @@ function Feed({ className, icon, name, massage, showDate, showLine }: Props) {
               style={showLine ? { borderBottom: "1px solid #6fa1ff" } : {}}
             >
               <div className={styles.feed_massage}>
-                <div className={styles.feed_icon}>{icon}</div>
+                {icon}
                 <p>{massage}</p>
               </div>
 
