@@ -30,10 +30,6 @@ interface Props {
 export default function PageLocationProvider({ children }: Props) {
   var pathName = useLocation().pathname;
 
-  useEffect(() => {
-    console.log("path name changed");
-  }, [pathName]);
-
   return (
     <PageLocationContext.Provider value={{ pathName }}>
       {children}

@@ -7,6 +7,9 @@ import Overview from "./pages/Overview";
 import Deployments from "./pages/Deployments";
 import Warnings from "./pages/Warnings";
 import AuditLogs from "./pages/AuditLogs";
+import ApplicationsTable from "./pages/Deployments/ApplicationsTable";
+import ServersTable from "./pages/Deployments/ServersTable";
+import ClustersTable from "./pages/Deployments/ClustersTable";
 
 function App() {
   return (
@@ -15,10 +18,15 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/app/home" replace />} />
           <Route path="/app" element={<LayOut />}>
+            <Route index element={<Navigate to="home" replace />} />
             <Route path="home">
-              <Route index element={<Overview />} />
+              <Route index element={<Navigate to="overview" replace />} />
+              <Route path="overview" element={<Overview />} />
               <Route path="deployments" element={<Deployments />}>
-                <Route path="servers" element={<div>server</div>} />
+                <Route index element={<Navigate to="applications" replace />} />
+                <Route path="applications" element={<ApplicationsTable />} />
+                <Route path="servers" element={<ServersTable />} />
+                <Route path="clusters" element={<ClustersTable />} />
               </Route>
               <Route path="warnings" element={<Warnings />} />
               <Route path="audit_logs" element={<AuditLogs />} />

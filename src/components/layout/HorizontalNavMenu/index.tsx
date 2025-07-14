@@ -1,8 +1,9 @@
 import styles from "./styles.module.css";
 import { MouseEvent, ReactNode, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 interface Props {
+  className?: string;
   menuId: string;
   menuItems: Record<string, string>;
   navigation?: boolean;
@@ -10,6 +11,7 @@ interface Props {
 }
 
 function HorizontalNavMenu({
+  className,
   menuId,
   menuItems,
   navigation = false,
@@ -17,6 +19,7 @@ function HorizontalNavMenu({
 }: Props) {
   const [newStyle, setNewStyle] = useState({});
   const navigate = useNavigate();
+  const location = useLocation();
 
   var handleClick = (
     element: MouseEvent<HTMLDivElement, globalThis.MouseEvent>,
@@ -31,24 +34,32 @@ function HorizontalNavMenu({
     navigation ? navigate(url) : null;
   };
 
-  useEffect(() => {
-    const currentLocation = window.location.pathname;
-    const cuurentSelection = document.querySelector(
-      `[data-nav-target="${currentLocation}"][data-menu-id="${menuId}"]`
-    );
+  if (navigation) {
+    useEffect(() => {
+      const windowLocation = location.pathname;
 
-    cuurentSelection
-      ? setNewStyle({
-          left: (cuurentSelection as HTMLInputElement).offsetLeft + "px",
-          width: (cuurentSelection as HTMLInputElement).offsetWidth / 2 + "px",
-        })
-      : null;
-  }, []);
+      var curentSelection = Object.keys(menuItems).find((route) =>
+        windowLocation.includes(route)
+      );
+
+      const targetItem = document.querySelector(
+        `[data-nav-target="${curentSelection}"][data-menu-id="${menuId}"]`
+      );
+
+      targetItem
+        ? setNewStyle({
+            left: (targetItem as HTMLInputElement).offsetLeft + "px",
+            width:
+              ((targetItem as HTMLInputElement).offsetWidth / 3) * 2 + "px",
+          })
+        : null;
+    }, [location.pathname]);
+  }
 
   return (
-    <nav className={styles.page_nav_container}>
+    <nav className={`${styles.page_nav_container} ${className}`}>
       {Object.entries(menuItems).map(
-        ([name, route], index): ReactNode => (
+        ([route, name], index): ReactNode => (
           <div
             key={index}
             className={styles.page_nav_options}
@@ -61,7 +72,7 @@ function HorizontalNavMenu({
         )
       )}
 
-      <div className={styles.page_nav_selection} style={newStyle}></div>
+      <span className={styles.page_nav_selection} style={newStyle}></span>
     </nav>
   );
 }

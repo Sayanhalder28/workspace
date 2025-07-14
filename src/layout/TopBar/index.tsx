@@ -15,9 +15,9 @@ function TopBar() {
           <HorizontalNavMenu
             menuId="top-bar-nav"
             menuItems={{
-              Home: "/app/home",
-              "Tickets & Services": "/app/tickets_&_services",
-              Notifications: "/app/notifications",
+              "/app/home": "home",
+              "/app/tickets_&_services": "Tickets & Services",
+              "/app/notifications": "Notifications",
             }}
             navigation={true}
           />

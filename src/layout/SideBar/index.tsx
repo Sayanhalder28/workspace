@@ -25,7 +25,7 @@ function SideBar() {
       <div className={styles.page_name}>{generateHeading()}</div>
       <div className={styles.menu}>
         <MenuDrawer name="Dashboard" icon={<AppIcon />}>
-          <DrawerItem hrf="/app/home">Overview</DrawerItem>
+          <DrawerItem hrf="/app/home/overview">Overview</DrawerItem>
           <DrawerItem hrf="/app/home/deployments">Deployments</DrawerItem>
           <DrawerItem hrf="/app/home/warnings">Warnings</DrawerItem>
           <DrawerItem hrf="/app/home/audit_logs">Audit & Logs</DrawerItem>

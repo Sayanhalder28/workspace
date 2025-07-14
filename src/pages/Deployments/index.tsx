@@ -1,5 +1,5 @@
-import HorizontalNavMenu from "../../components/layout/HorizontalNavMenu";
 import styles from "./styles.module.css";
+import HorizontalNavMenu from "../../components/layout/HorizontalNavMenu";
 import { Outlet } from "react-router-dom";
 
 function Deployments() {
@@ -16,14 +16,19 @@ function Deployments() {
         <button>New</button>
       </div>
       <div className={styles.body}>
-        <HorizontalNavMenu
-          menuId="deplyments-nav"
-          menuItems={{
-            Applications: "applications",
-            Servers: "servers",
-            Cluster: "clusters",
-          }}
-        />
+        <div className={styles.nav_container}>
+          <HorizontalNavMenu
+            className={styles.nav_main}
+            menuId="deplyments-nav"
+            menuItems={{
+              applications: "Applications",
+              servers: "Servers",
+              clusters: "Clusters",
+            }}
+            navigation={true}
+          />
+        </div>
+
         <div className={styles.table_selected}>
           <Outlet />
         </div>

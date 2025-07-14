@@ -4,11 +4,12 @@ import filterIcon from "../../../assets/FilterIcon.svg";
 import sortIcon from "../../../assets/SortIcon.svg";
 
 interface Props {
-  className: string;
+  className?: string;
   name: string;
   records: Record<string, any>;
   uniqueFields: Record<string, string[]>;
   icon?: string;
+  showHeading?: boolean;
   editField?: () => void;
 }
 
@@ -18,6 +19,7 @@ function Table({
   records,
   uniqueFields,
   icon,
+  showHeading = true,
   editField,
 }: Props) {
   //Note: scanAllFields function should be there in the backend and it should search the entire data set
@@ -92,7 +94,11 @@ function Table({
   return (
     <div className={className}>
       <div className={styles.table}>
-        <div className={styles.table_heading}>{name}</div>
+        {showHeading ? (
+          <div className={styles.table_heading}>{name}</div>
+        ) : (
+          <></>
+        )}
         <div className={styles.table_body}>
           {records ? (
             generateTableBody(records, uniqueFields)
