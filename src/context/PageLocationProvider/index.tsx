@@ -1,5 +1,5 @@
 // Imports for ceating context
-import { createContext, useContext, useEffect } from "react";
+import { createContext, useContext } from "react";
 // Imports for ceating context provider
 import { useLocation } from "react-router-dom";
 import { ReactNode } from "react";
